@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback } from '../components/ui/avatar';
 import { useAppTranslation } from '../../hooks/use-translation';
 import { DASHBOARD_CONSTANTS } from '../../data/Constants';
 import { useNavigate } from 'react-router-dom';
-import RecentActivitiesSkeleton from '../skeletons/RecentActivitiesSkeleton';
+import RecentActivitiesSkeleton from '../Skeletons/RecentActivitiesSkeleton';
 
 const RecentActivities = ({ activities = [], loading = false }) => {
   const { t } = useAppTranslation();
