@@ -6,7 +6,7 @@ import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Separator } from '../../components/ui/separator';
 import { BookOpen, Users, Clock, Award, Hash, Layers, CheckCircle, XCircle } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewCoursesModal = ({
   isOpen,
