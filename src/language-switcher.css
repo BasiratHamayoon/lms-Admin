@@ -1,0 +1,318 @@
+/* Language Switcher Specific Styles */
+
+/* RTL Layout Support */
+[dir="rtl"] {
+  /* Reverse flex directions for sidebar and main content */
+  .flex-row {
+    flex-direction: row-reverse;
+  }
+  
+  .flex-row-reverse {
+    flex-direction: row;
+  }
+  
+  /* Adjust margins and paddings */
+  .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  
+  .mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+  }
+  
+  .mr-2 {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+  }
+  
+  .ml-2 {
+    margin-left: 0 !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  .mr-3 {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+  }
+  
+  .ml-3 {
+    margin-left: 0 !important;
+    margin-right: 0.75rem !important;
+  }
+  
+  .mr-4 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+  }
+  
+  .ml-4 {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+  }
+  
+  /* Adjust padding */
+  .pr-4 {
+    padding-right: 0 !important;
+    padding-left: 1rem !important;
+  }
+  
+  .pl-4 {
+    padding-left: 0 !important;
+    padding-right: 1rem !important;
+  }
+  
+  .pr-2 {
+    padding-right: 0 !important;
+    padding-left: 0.5rem !important;
+  }
+  
+  .pl-2 {
+    padding-left: 0 !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Adjust text alignment */
+  .text-left {
+    text-align: right !important;
+  }
+  
+  .text-right {
+    text-align: left !important;
+  }
+  
+  .text-start {
+    text-align: end !important;
+  }
+  
+  .text-end {
+    text-align: start !important;
+  }
+  
+  /* Adjust sidebar positioning */
+  .md\\:left-0 {
+    left: auto !important;
+    right: 0 !important;
+  }
+  
+  .md\\:right-0 {
+    right: auto !important;
+    left: 0 !important;
+  }
+  
+  /* Adjust sidebar spacing */
+  .md\\:pl-64 {
+    padding-left: 0 !important;
+    padding-right: 16rem !important;
+  }
+  
+  .md\\:pr-64 {
+    padding-right: 0 !important;
+    padding-left: 16rem !important;
+  }
+  
+  .md\\:pl-20 {
+    padding-left: 0 !important;
+    padding-right: 5rem !important;
+  }
+  
+  .md\\:pr-20 {
+    padding-right: 0 !important;
+    padding-left: 5rem !important;
+  }
+  
+  /* FIXED: Proper border handling for RTL */
+  /* Remove left border and add right border for sidebar in RTL */
+  .border-r {
+    border-right-width: 1px !important;
+    border-left-width: 1px !important;
+  }
+  
+  .border-l {
+    border-left-width: 1px !important;
+    border-right-width: 0 !important;
+  }
+  
+  /* Adjust space utilities */
+  .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  /* Adjust icons positioning in sidebar */
+  .justify-start {
+    justify-content: flex-end;
+  }
+  
+  .justify-end {
+    justify-content: flex-start;
+  }
+  
+  /* Adjust sidebar menu items */
+  .items-start {
+    align-items: flex-end;
+  }
+  
+  .items-end {
+    align-items: flex-start;
+  }
+  
+  /* Fix for sidebar menu button alignment */
+  .flex-row {
+    flex-direction: row-reverse;
+  }
+  
+  /* Adjust tooltip positions */
+  [data-side="left"] {
+    --side: right !important;
+  }
+  
+  [data-side="right"] {
+    --side: left !important;
+  }
+}
+
+/* LTR specific adjustments */
+[dir="ltr"] {
+  .md\\:left-0 {
+    left: 0 !important;
+    right: auto !important;
+  }
+  
+  .md\\:right-0 {
+    right: 0 !important;
+    left: auto !important;
+  }
+  
+  .md\\:pl-64 {
+    padding-left: 16rem !important;
+    padding-right: 0 !important;
+  }
+  
+  .md\\:pr-64 {
+    padding-right: 16rem !important;
+    padding-left: 0 !important;
+  }
+  
+  .md\\:pl-20 {
+    padding-left: 5rem !important;
+    padding-right: 0 !important;
+  }
+  
+  .md\\:pr-20 {
+    padding-right: 5rem !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* Language Switcher Component Styles */
+.language-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.language-switcher-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.language-switcher-button:hover {
+  background: var(--accent);
+  border-color: var(--ring);
+}
+
+.language-switcher-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.25rem;
+  background: var(--popover);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+.language-switcher-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.language-switcher-item:hover {
+  background: var(--accent);
+}
+
+.language-switcher-item.active {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* RTL adjustments for language switcher */
+[dir="rtl"] .language-switcher-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .language-switcher-button {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .language-switcher-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Responsive language switcher */
+@media (max-width: 768px) {
+  .language-switcher-dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+    transform: translateY(100%);
+    animation: slideUp 0.3s ease-out forwards;
+  }
+  
+  .language-switcher-dropdown.open {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

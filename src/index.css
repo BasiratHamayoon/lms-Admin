@@ -1,0 +1,798 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  
+  /* Chart Colors - Light Theme */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  
+  /* Chart CSS Variables for Recharts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.14 0.04 259.21);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  
+  /* Chart Colors - Dark Theme */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  
+  /* Chart CSS Variables for Recharts - Dark Theme */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+@theme inline {
+  --font-inter: 'Inter', 'sans-serif';
+  --font-manrope: 'Manrope', 'sans-serif';
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  html, body {
+    @apply h-full w-full overflow-x-hidden;
+  }
+  body {
+    @apply bg-background text-foreground min-h-svh w-full;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* RTL Base Styles */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+
+  [dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+  }
+
+  /* Prevent focus zoom on mobile devices */
+  @media screen and (max-width: 767px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+@utility no-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@utility faded-bottom {
+  @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:hidden after:h-32 after:w-full after:bg-[linear-gradient(180deg,_transparent_10%,_var(--background)_70%)] md:after:block;
+}
+
+/* ===== CHART STYLES ===== */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  direction: ltr; /* Charts always LTR internally */
+}
+
+.recharts-wrapper {
+  font-family: var(--font-inter);
+  direction: ltr; /* Ensure charts are always LTR */
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--border);
+  stroke-opacity: 0.3;
+}
+
+.recharts-x-axis .recharts-cartesian-axis-tick-value,
+.recharts-y-axis .recharts-cartesian-axis-tick-value {
+  fill: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-family: var(--font-inter);
+}
+
+.recharts-legend-wrapper {
+  bottom: -10px !important;
+}
+
+.recharts-default-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.recharts-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.recharts-legend-item-text {
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-family: var(--font-inter);
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+/* Custom tooltip styling */
+.recharts-tooltip-cursor {
+  fill: var(--border);
+  fill-opacity: 0.1;
+}
+
+.recharts-active-dot {
+  stroke: var(--background);
+  stroke-width: 2;
+}
+
+/* Pie chart specific styles */
+.recharts-pie-sector {
+  stroke: var(--background);
+  stroke-width: 2;
+}
+
+.recharts-radial-bar-background-sector {
+  fill: var(--muted);
+}
+
+/* Bar chart specific styles */
+.recharts-bar-rectangle {
+  stroke: var(--background);
+  stroke-width: 1;
+}
+
+/* Line chart specific styles */
+.recharts-line-curve {
+  stroke-width: 2;
+}
+
+.recharts-line-dot {
+  stroke: var(--background);
+  stroke-width: 2;
+}
+
+/* ===== RTL LAYOUT SUPPORT ===== */
+[dir="rtl"] {
+  /* Reverse flex directions for sidebar and main content */
+  .flex-row {
+    flex-direction: row-reverse;
+  }
+  
+  .flex-row-reverse {
+    flex-direction: row;
+  }
+
+  /* Adjust margins and paddings */
+  .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  
+  .mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+  }
+  
+  .mr-2 {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+  }
+  
+  .ml-2 {
+    margin-left: 0 !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  .mr-3 {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+  }
+  
+  .ml-3 {
+    margin-left: 0 !important;
+    margin-right: 0.75rem !important;
+  }
+  
+  .mr-4 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+  }
+  
+  .ml-4 {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+  }
+  
+  /* Adjust padding */
+  .pr-4 {
+    padding-right: 0 !important;
+    padding-left: 1rem !important;
+  }
+  
+  .pl-4 {
+    padding-left: 0 !important;
+    padding-right: 1rem !important;
+  }
+  
+  .pr-2 {
+    padding-right: 0 !important;
+    padding-left: 0.5rem !important;
+  }
+  
+  .pl-2 {
+    padding-left: 0 !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Adjust text alignment */
+  .text-left {
+    text-align: right !important;
+  }
+  
+  .text-right {
+    text-align: left !important;
+  }
+  
+  .text-start {
+    text-align: end !important;
+  }
+  
+  .text-end {
+    text-align: start !important;
+  }
+  
+  /* Adjust sidebar positioning */
+  .md\\:left-0 {
+    left: auto !important;
+    right: 0 !important;
+  }
+  
+  .md\\:right-0 {
+    right: auto !important;
+    left: 0 !important;
+  }
+  
+  /* Adjust sidebar spacing */
+  .md\\:pl-64 {
+    padding-left: 0 !important;
+    padding-right: 16rem !important;
+  }
+  
+  .md\\:pr-64 {
+    padding-right: 0 !important;
+    padding-left: 16rem !important;
+  }
+  
+  .md\\:pl-20 {
+    padding-left: 0 !important;
+    padding-right: 5rem !important;
+  }
+  
+  .md\\:pr-20 {
+    padding-right: 0 !important;
+    padding-left: 5rem !important;
+  }
+  
+  /* FIXED: Proper border handling for RTL */
+  .border-r {
+    border-right-width: 1px !important;
+    border-left-width: 1px !important;
+  }
+  
+  .border-l {
+    border-left-width: 1px !important;
+    border-right-width: 0 !important;
+  }
+  
+  /* Adjust space utilities */
+  .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  /* Adjust icons positioning in sidebar */
+  .justify-start {
+    justify-content: flex-end;
+  }
+  
+  .justify-end {
+    justify-content: flex-start;
+  }
+  
+  /* Adjust sidebar menu items */
+  .items-start {
+    align-items: flex-end;
+  }
+  
+  .items-end {
+    align-items: flex-start;
+  }
+  
+  /* Fix for sidebar menu button alignment */
+  .flex-row {
+    flex-direction: row-reverse;
+  }
+  
+  /* Adjust tooltip positions */
+  [data-side="left"] {
+    --side: right !important;
+  }
+  
+  [data-side="right"] {
+    --side: left !important;
+  }
+  
+  /* Chart RTL adjustments - Keep charts LTR but adjust containers */
+  .chart-title {
+    text-align: right !important;
+  }
+  
+  .chart-legend-rtl {
+    direction: rtl;
+  }
+  
+  /* Card content alignment for RTL */
+  .card-content-rtl {
+    text-align: right;
+  }
+}
+
+/* ===== LTR SPECIFIC ADJUSTMENTS ===== */
+[dir="ltr"] {
+  .md\\:left-0 {
+    left: 0 !important;
+    right: auto !important;
+  }
+  
+  .md\\:right-0 {
+    right: 0 !important;
+    left: auto !important;
+  }
+  
+  .md\\:pl-64 {
+    padding-left: 16rem !important;
+    padding-right: 0 !important;
+  }
+  
+  .md\\:pr-64 {
+    padding-right: 16rem !important;
+    padding-left: 0 !important;
+  }
+  
+  .md\\:pl-20 {
+    padding-left: 5rem !important;
+    padding-right: 0 !important;
+  }
+  
+  .md\\:pr-20 {
+    padding-right: 5rem !important;
+    padding-left: 0 !important;
+  }
+  
+  .chart-title {
+    text-align: left !important;
+  }
+  
+  .card-content-ltr {
+    text-align: left;
+  }
+}
+
+/* ===== CHART RTL/LTR SPECIFIC FIXES ===== */
+
+/* Ensure charts maintain LTR internally while containers follow RTL */
+[dir="rtl"] .recharts-wrapper,
+[dir="rtl"] .recharts-surface,
+[dir="rtl"] .recharts-layer {
+  direction: ltr !important;
+}
+
+/* RTL Chart container adjustments */
+[dir="rtl"] .chart-container {
+  direction: ltr; /* Keep chart content LTR */
+}
+
+/* Fix for chart tooltips in RTL */
+[dir="rtl"] .recharts-tooltip-wrapper {
+  direction: rtl;
+}
+
+[dir="rtl"] .recharts-default-tooltip {
+  text-align: right;
+}
+
+/* Fix for pie chart legend in RTL */
+[dir="rtl"] .recharts-legend-wrapper {
+  direction: rtl;
+}
+
+[dir="rtl"] .recharts-default-legend {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .recharts-legend-item {
+  flex-direction: row-reverse;
+}
+
+/* Bar chart specific RTL fixes */
+[dir="rtl"] .recharts-bar-chart {
+  direction: ltr; /* Keep bar chart LTR */
+}
+
+/* Axis label fixes for RTL */
+[dir="rtl"] .recharts-cartesian-axis-tick-value {
+  text-anchor: end;
+}
+
+/* ===== ANIMATION AND TRANSITION CONTROLS ===== */
+
+/* Remove React animations from dropdowns and titles */
+.animate-in,
+.slide-in-from-top-5,
+.animate-pulse,
+.hover\\:scale-110:hover,
+.group-hover\\:scale-105:hover {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Remove transitions for specific elements */
+button,
+[role='button'],
+.dropdown-menu-content,
+.notification-item,
+.sidebar-menu-button {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Ensure smooth transitions only for essential elements */
+.flex,
+.w-full,
+.h-full,
+.opacity-100,
+.opacity-0 {
+  transition: all 0.3s ease;
+}
+
+/* Chart specific transitions */
+.recharts-bar-rectangle,
+.recharts-pie-sector,
+.recharts-line-curve {
+  transition: all 0.3s ease;
+}
+
+.recharts-bar-rectangle:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+.recharts-pie-sector:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* ===== COMPONENT SPECIFIC STYLES ===== */
+
+/* Collapsible Content */
+.CollapsibleContent {
+  overflow: hidden;
+}
+.CollapsibleContent[data-state='open'] {
+  animation: slideDown 300ms ease-out;
+}
+.CollapsibleContent[data-state='closed'] {
+  animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Smooth transitions for layout elements only */
+.fixed,
+.absolute,
+.relative,
+.flex,
+.w-full,
+.h-full {
+  transition: margin 0.3s ease, padding 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Chart container transitions */
+.chart-container,
+.recharts-wrapper {
+  transition: all 0.3s ease;
+}
+
+/* Ensure proper sidebar positioning */
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+/* ===== SCROLLBAR STYLES ===== */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+@media (max-width: 768px) {
+  .recharts-legend-wrapper {
+    bottom: -5px !important;
+  }
+  
+  .recharts-default-legend {
+    gap: 0.5rem;
+  }
+  
+  .recharts-legend-item {
+    gap: 0.25rem;
+  }
+  
+  .recharts-legend-item-text {
+    font-size: 0.7rem;
+  }
+  
+  .recharts-x-axis .recharts-cartesian-axis-tick-value,
+  .recharts-y-axis .recharts-cartesian-axis-tick-value {
+    font-size: 0.7rem;
+  }
+  
+  /* Mobile RTL adjustments */
+  [dir="rtl"] .md\\:pl-64 {
+    padding-right: 0 !important;
+  }
+  
+  [dir="rtl"] .md\\:pr-64 {
+    padding-left: 0 !important;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+  .chart-container {
+    break-inside: avoid;
+  }
+  
+  .recharts-wrapper {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ===== UTILITY CLASSES FOR CHARTS ===== */
+
+.chart-title-rtl {
+  text-align: right;
+}
+
+.chart-title-ltr {
+  text-align: left;
+}
+
+.chart-legend-rtl {
+  direction: rtl;
+}
+
+.chart-legend-ltr {
+  direction: ltr;
+}
+
+/* Force LTR for all chart internals */
+.recharts-surface,
+.recharts-layer,
+.recharts-bar,
+.recharts-pie,
+.recharts-line {
+  direction: ltr !important;
+}
+
+/* RTL container with LTR chart content */
+.rtl-chart-container {
+  direction: rtl;
+}
+
+.rtl-chart-container .recharts-wrapper {
+  direction: ltr;
+}
+
+/* Card alignment utilities */
+.card-header-rtl {
+  text-align: right;
+}
+
+.card-header-ltr {
+  text-align: left;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
