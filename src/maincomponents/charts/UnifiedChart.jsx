@@ -5,7 +5,7 @@ import {
   Area, AreaChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer,
   PieChart, Pie, Cell, Legend, Sector
 } from 'recharts';
-import ChartSkeleton from '../skeletons/ChartSkeleton';
+import ChartSkeleton from '../../maincomponents/Skeletons/ChartSkeleton';
 
 export const UnifiedChart = ({
   data, type = 'bar', config = {}, title, isRTL = false, className = '',
