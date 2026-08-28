@@ -12,7 +12,7 @@ import {
 import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '../../maincomponents/components/ui/card';
 import { ChartContainer } from '../../maincomponents/components/ui/chart';
-import ChartSkeleton from '@maincomponents/skeletons/ChartSkeleton';
+
 
 import StatsCard from '@maincomponents/cards/StatsCard';
 import AttendanceTable from '@maincomponents/tables/AttendanceTable';
@@ -34,6 +34,7 @@ import {
   getWorkHours
 } from '../../redux/actions/attendance';
 import { clearError, clearActionSuccess, clearBulkResults } from '../../redux/slice/attendanceSlice';
+import ChartSkeleton from '@maincomponents/Skeletons/ChartSkeleton';
 
 const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
