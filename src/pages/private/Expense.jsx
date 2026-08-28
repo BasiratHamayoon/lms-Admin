@@ -7,7 +7,6 @@ import { Button } from '@maincomponents/components/ui/button';
 import { Plus, FileText } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@maincomponents/components/ui/card';
 import { ResponsiveContainer, AreaChart, Area, PieChart, Pie, Cell, Legend, Sector, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import ChartSkeleton from '@maincomponents/skeletons/ChartSkeleton';
 import ExpenseTable from '@maincomponents/tables/ExpenseTable';
 import PageHeader from '@maincomponents/headerbar/PageHeader';
 import ViewExpenseModal from '@maincomponents/modal/viewModals/ViewExpenseModal';
@@ -109,7 +108,7 @@ const Expenses = () => {
   };
 
   const handleViewExpense = (expense) => {
-    const expenseId = expense.id || expense._id; // ✅ THE FIX
+    const expenseId = expense.id || expense._id;
     if (!expenseId) {
         toast.error("Invalid expense record selected.");
         return;
@@ -119,7 +118,7 @@ const Expenses = () => {
   };
 
   const handleDeleteExpense = (expense) => {
-    const expenseId = expense.id || expense._id; // ✅ THE FIX
+    const expenseId = expense.id || expense._id;
     if (window.confirm(t('common.confirmDelete'))) {
       dispatch(deleteExpense(expenseId));
       setIsViewModalOpen(false);
@@ -127,7 +126,7 @@ const Expenses = () => {
   };
 
   const handleProcessExpense = (expense, action) => {
-    const expenseId = expense.id || expense._id; // ✅ THE FIX
+    const expenseId = expense.id || expense._id;
     let reason = '';
     if (action === 'rejected' && (reason = window.prompt(t('expense.enterRejectionReason'))) === null) return;
     dispatch(processExpense({ id: expenseId, data: { status: action, reason } }));
@@ -187,7 +186,16 @@ const Expenses = () => {
   
   const renderCharts = () => {
     if (statsLoading) {
-      return <ChartSkeleton type="curve" className="w-full h-[420px]" />;
+      return (
+        <Card className="border-0 shadow-lg w-full h-[420px] p-6 animate-pulse bg-card flex flex-col justify-between">
+          <div className="h-6 bg-muted rounded w-1/4 mb-4"></div>
+          <div className="flex items-end justify-between gap-2 h-64">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="bg-muted rounded w-full" style={{ height: `${Math.random() * 60 + 40}%` }}></div>
+            ))}
+          </div>
+        </Card>
+      );
     }
     const hasStatusData = statusChartData && statusChartData.length > 0;
     const hasCategoryData = categoryChartData && categoryChartData.length > 0;
