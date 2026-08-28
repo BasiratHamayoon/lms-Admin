@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import BaseViewModal from './BaseViewModal';
 import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
-import ViewModalSkeleton from '@maincomponents/skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 import {
   HelpCircle, ListChecks, CheckCircle, XCircle, Hash
 } from 'lucide-react';

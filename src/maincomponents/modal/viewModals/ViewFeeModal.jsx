@@ -24,7 +24,7 @@ import {
   Banknote
 } from 'lucide-react';
 import { Button } from '../../components/ui/button';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 
 const ViewFeeModal = ({ 

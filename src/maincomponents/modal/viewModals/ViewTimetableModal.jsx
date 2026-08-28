@@ -4,7 +4,7 @@ import BaseViewModal from './BaseViewModal';
 import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Clock, Calendar, BookOpen, MapPin, GraduationCap, Building, Users, CheckCircle, XCircle, User, Layers, Mail, Hash } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewTimetableModal = ({
   isOpen,

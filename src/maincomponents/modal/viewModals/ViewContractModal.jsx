@@ -7,8 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/ca
 import { Separator } from '../../components/ui/separator';
 import { Button } from '../../components/ui/button';
 import { FileText, User, Mail, Calendar, Clock, CheckCircle, XCircle, AlertCircle, Download } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
-
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 const ViewContractModal = ({ 
   isOpen, onClose, data, loading, isRTL = false, 
   currentLanguage = 'en', onEdit, onDelete, onDownload

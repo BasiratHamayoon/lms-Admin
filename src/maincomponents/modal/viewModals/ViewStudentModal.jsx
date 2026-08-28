@@ -6,7 +6,7 @@ import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { User, Phone, Mail, Calendar, GraduationCap, Globe, BookOpen } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewStudentModal = ({ isOpen, onClose, data, isLoading, isRTL, currentLanguage, onEdit, onDelete }) => {
   const { t } = useTranslation();

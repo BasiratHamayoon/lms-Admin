@@ -9,7 +9,7 @@ import {
   User, DollarSign, Calendar, Clock, CreditCard, Building, FileText, CheckCircle, 
   XCircle, AlertCircle, Clock4, AlertTriangle, TrendingUp, TrendingDown 
 } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewSalaryModal = ({ 
   isOpen, onClose, data, isLoading, isRTL = false, currentLanguage = 'en',

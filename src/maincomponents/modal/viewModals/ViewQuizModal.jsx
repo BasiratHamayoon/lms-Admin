@@ -4,7 +4,7 @@ import BaseViewModal from '../../modal/viewModals/BaseViewModal';
 import { Card, CardContent } from '@maincomponents/components/ui/card';
 import { Badge } from '@maincomponents/components/ui/badge';
 import { Calendar, Users, FileText, Clock, AlertCircle, BarChart3, Clock3 } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewQuizModal = ({ 
   isOpen, 

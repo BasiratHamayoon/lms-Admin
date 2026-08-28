@@ -4,7 +4,7 @@ import BaseViewModal from './BaseViewModal';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
-import ViewModalSkeleton from '@maincomponents/skeletons/ViewModalSkeleton'; // <-- IMPORTED
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 import { 
   Building, Users, UserCircle, BookOpen, CheckCircle, XCircle, GraduationCap,
   TrendingUp, Briefcase, Calendar, Mail

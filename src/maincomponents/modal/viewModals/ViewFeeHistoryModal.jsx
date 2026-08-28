@@ -21,7 +21,7 @@ import {
   CheckCheck
 } from 'lucide-react';
 import { Button } from '@maincomponents/components/ui/button';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewFeeHistoryModal = ({ 
   isOpen, 

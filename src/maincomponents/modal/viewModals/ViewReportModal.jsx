@@ -5,7 +5,7 @@ import BaseViewModal from './BaseViewModal';
 import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Separator } from '../../components/ui/separator';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 import {
   FileText, DollarSign, Calendar, TrendingUp, BarChart, Download, Printer,
   Share2, Users, CreditCard, CheckCircle, AlertCircle, Clock, FileBarChart

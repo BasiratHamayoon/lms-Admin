@@ -9,7 +9,7 @@ import {
   MessageCircle, Mail, Calendar, User, BookOpen, AlertCircle, Clock,
   CheckCircle, HelpCircle, Info, AlertTriangle, GraduationCap, MessageSquare
 } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewQueriesModal = ({ 
   isOpen, 

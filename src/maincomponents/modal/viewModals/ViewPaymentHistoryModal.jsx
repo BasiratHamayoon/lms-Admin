@@ -6,7 +6,7 @@ import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { CreditCard, Calendar, User, FileText, DollarSign, CheckCircle, Clock, Banknote, Copy } from 'lucide-react';
 import { toast } from 'sonner';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const CopyableId = ({ label, id, t }) => {
   const handleCopy = () => {

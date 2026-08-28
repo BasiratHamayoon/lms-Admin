@@ -27,7 +27,7 @@ import {
   Briefcase,
   Shield
 } from 'lucide-react';
-import ViewNotificationSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton'; // Ensure path is correct
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewNotificationsModal = ({ 
   isOpen, 

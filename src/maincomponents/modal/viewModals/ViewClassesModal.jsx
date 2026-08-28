@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { Badge } from '../../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Users, Calendar, Clock, BookOpen, User, CheckCircle, XCircle, Clock3, Layers } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewClassesModal = ({
   isOpen,

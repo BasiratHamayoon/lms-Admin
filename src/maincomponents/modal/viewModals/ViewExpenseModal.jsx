@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@maincomponents/compon
 import { Button } from '@maincomponents/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@maincomponents/components/ui/dialog';
 import { FileText, DollarSign, Calendar, Building, CheckCircle, XCircle, Clock, Receipt, Download, Image as ImageIcon, File, ExternalLink, ZoomIn } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 

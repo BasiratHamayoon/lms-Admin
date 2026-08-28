@@ -20,7 +20,7 @@ import {
   XCircle,
   AlertCircle
 } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewFeeStructureModal = ({ 
   isOpen, 

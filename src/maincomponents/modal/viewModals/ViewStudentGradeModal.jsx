@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from '@maincomponents/components/ui/avatar';
 import { Badge } from '@maincomponents/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@maincomponents/components/ui/card';
 import { User, BookOpen, Calendar, Award, FileText, CheckCircle, Clock, TrendingUp, BarChart, GraduationCap, Building, Archive, AlertCircle } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewStudentGradeModal = ({ 
   isOpen, 

@@ -19,7 +19,7 @@ import {
   Clock3,
   BookOpen
 } from 'lucide-react';
-import ViewModalSkeleton from '@maincomponents/Skeletons/ViewModalSkeleton';
+import ViewModalSkeleton from '../../Skeletons/ViewModalSkeleton';
 
 const ViewLeaveModal = ({ 
   isOpen, 
