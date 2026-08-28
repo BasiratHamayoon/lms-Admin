@@ -7,7 +7,7 @@ import { useAppTranslation } from '../../hooks/use-translation';
 import { DASHBOARD_CONSTANTS } from '../../data/Constants';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Zap } from 'lucide-react';
-import QuickActionsSkeleton from '../skeletons/QuickActionsSkeleton';
+import QuickActionsSkeleton from '../Skeletons/QuickActionsSkeleton';
 
 const QuickActions = ({ actions = [], loading = false }) => {
   const { t } = useAppTranslation();
