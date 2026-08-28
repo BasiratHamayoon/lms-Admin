@@ -11,7 +11,7 @@ import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tool
 import { Card, CardContent, CardHeader, CardTitle } from '../../maincomponents/components/ui/card';
 // --- ADDED THIS IMPORT ---
 import { ChartContainer, ChartTooltipContent } from '../../maincomponents/components/ui/chart';
-import ChartSkeleton from '../../maincomponents/skeletons/ChartSkeleton.jsx';
+import ChartSkeleton from '../../maincomponents/Skeletons/ChartSkeleton';
 // --- End chart-specific imports ---
 
 import StatsCard from '@maincomponents/cards/StatsCard';
