@@ -8,7 +8,6 @@ import {
   Plus, RefreshCw, X, Calendar, CheckCircle, XCircle, Clock, AlertTriangle, CalendarOff, Timer, Users, TrendingUp
 } from 'lucide-react';
 
-// Chart-specific imports
 import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '../../maincomponents/components/ui/card';
 import { ChartContainer } from '../../maincomponents/components/ui/chart';
@@ -33,7 +32,6 @@ import {
   getWorkHours
 } from '../../redux/actions/attendance';
 import { clearError, clearActionSuccess, clearBulkResults } from '../../redux/slice/attendanceSlice';
-import ChartSkeleton from '@maincomponents/skeletons/ChartSkeleton';
 
 const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -55,11 +53,10 @@ const DEFAULT_STATS_STRUCTURE = [
   { title: 'attendance.stats.attendanceRate', icon: TrendingUp, color: 'green' }
 ];
 
-// Custom Tooltip for Chart to match text color with chart color
 const CustomChartTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         const data = payload[0];
-        const color = data.stroke || data.color || '#f59e0b'; // Use stroke/color from payload, with fallback
+        const color = data.stroke || data.color || '#f59e0b'; 
         return (
             <div className="rounded-lg border bg-background/95 p-2 text-sm shadow-lg backdrop-blur-sm">
                 <p className="mb-1 font-bold text-foreground">{label}</p>
@@ -75,7 +72,6 @@ const CustomChartTooltip = ({ active, payload, label }) => {
     }
     return null;
 };
-
 
 const Attendance = () => {
   const { t, i18n } = useTranslation();
@@ -133,23 +129,18 @@ const Attendance = () => {
   const fetchData = useCallback(() => { const listParams = { page: currentPage, limit: pageSize, search: debouncedSearchTerm, date: filterByDate && selectedDate ? selectedDate : undefined, ...filters }; const statsParams = { fromDate: filterByDate && selectedDate ? selectedDate : undefined, toDate: filterByDate && selectedDate ? selectedDate : undefined, ...filters }; const chartParams = { type: 'daily', date: filterByDate && selectedDate ? selectedDate : undefined, ...filters }; dispatch(getAttendanceList(listParams)); dispatch(getAttendanceStats(statsParams)); dispatch(getAttendanceCharts(chartParams)); }, [dispatch, currentPage, pageSize, debouncedSearchTerm, filterByDate, selectedDate, filters]);
   
   useEffect(() => {
-    // This effect runs only once on initial mount to fetch essential, less-frequently-changing data.
     const today = new Date().toISOString().split('T')[0];
     dispatch(getAllStaffForAttendance({ date: selectedDate || today }));
     dispatch(getWorkHours());
     fetchData(); 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
   
   useEffect(() => { 
-    // This effect handles re-fetching data when filters, search, or pagination change.
-    // It's guarded to prevent running on the initial render, which is handled by the effect above.
     if (isInitialMount.current) { isInitialMount.current = false; return; } 
     fetchData(); 
   }, [fetchData, debouncedSearchTerm, currentPage, pageSize, filterByDate, selectedDate, filters]);
   
   useEffect(() => { 
-    // This effect handles side-effects like showing toasts and refreshing data after an action.
     if (error) { toast.error(error); dispatch(clearError()); } 
     if (actionSuccess) { dispatch(clearActionSuccess()); fetchData(); } 
     if (bulkResults) { const { summary } = bulkResults; if (summary) { const message = `${summary.successful}/${summary.total} successful${summary.failed > 0 ? `, ${summary.failed} failed` : ''}`; summary.failed > 0 ? toast.warning(message) : toast.success(message); } dispatch(clearBulkResults()); } 
@@ -196,7 +187,16 @@ const Attendance = () => {
         <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-card">
           <CardHeader><CardTitle className={`text-lg font-bold text-card-foreground ${isRTL ? 'text-right' : 'text-left'}`}>{t('attendance.charts.overview')}</CardTitle></CardHeader>
           <CardContent className="h-96 p-0">
-            {loading.charts ? <ChartSkeleton type="curve" isRTL={isRTL} /> : (
+            {loading.charts ? (
+              <div className="flex h-full w-full flex-col justify-between p-6 animate-pulse">
+                <div className="h-6 bg-muted rounded w-1/4 mb-4"></div>
+                <div className="flex items-end justify-between gap-2 h-64">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div key={i} className="bg-muted rounded w-full" style={{ height: `${Math.random() * 60 + 40}%` }}></div>
+                  ))}
+                </div>
+              </div>
+            ) : (
               <ChartContainer config={{}} className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={mainChartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>

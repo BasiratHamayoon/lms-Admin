@@ -6,12 +6,9 @@ import { toast } from 'sonner';
 import { Button } from '../../maincomponents/components/ui/button';
 import { Plus, Building, CheckCircle, BookOpen, Briefcase } from 'lucide-react';
 
-// --- Chart-specific imports ---
 import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '../../maincomponents/components/ui/card';
-// --- ADDED THIS IMPORT ---
 import { ChartContainer, ChartTooltipContent } from '../../maincomponents/components/ui/chart';
-// --- End chart-specific imports ---
 
 import StatsCard from '@maincomponents/cards/StatsCard';
 import DepartmentTable from '@maincomponents/tables/DepartmentTable';
@@ -38,7 +35,6 @@ import {
   setSelectedDepartment,
   clearSelectedDepartment,
 } from '@redux/slice/departmentSlice';
-import ChartSkeleton from '@maincomponents/skeletons/ChartSkeleton';
 
 const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -89,7 +85,6 @@ const Departments = () => {
     }));
   }, [memberDistributionChart, currentLanguage, t, getDisplayName, teachersLabel, studentsLabel]);
 
-  // The rest of the component's state and logic remains the same...
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isViewModalOpen, setIsViewModalOpen] = useState(false);
     const [isDetailsLoading, setIsDetailsLoading] = useState(false);
@@ -123,7 +118,6 @@ const Departments = () => {
     const formattedTeachers = useMemo(() => { if (!teacherOptions || !Array.isArray(teacherOptions)) return []; return teacherOptions.map((teacher) => { const nameObj = teacher?.name || {}; const enName = nameObj?.en || {}; const arName = nameObj?.ar || {}; const displayName = currentLanguage === 'ar' && (arName?.firstName || arName?.lastName) ? `${arName.firstName || ''} ${arName.lastName || ''}`.trim() : `${enName.firstName || ''} ${enName.lastName || ''}`.trim(); return { _id: teacher._id, name: displayName || `Teacher ${teacher?.id}` }; }).filter(Boolean); }, [teacherOptions, currentLanguage]);
     const statsCards = useMemo(() => [ { title: 'departments.totalDepartments', value: safeStats.totalDepartments, icon: Building, color: 'blue' }, { title: 'departments.activeDepartments', value: safeStats.activeDepartments, icon: CheckCircle, color: 'green' }, { title: 'departments.academicDepartments', value: safeStats.academicDepartments, icon: BookOpen, color: 'purple' }, { title: 'departments.administrativeDepartments', value: safeStats.administrativeDepartments, icon: Briefcase, color: 'teal' }, ], [safeStats]);
 
-
   return (
     <div className="space-y-6 py-6 px-2" dir={isRTL ? 'rtl' : 'ltr'}>
       <PageHeader title={t('sidebar.departments')} description={t('departments.pageDescription')}
@@ -146,9 +140,15 @@ const Departments = () => {
           </CardHeader>
           <CardContent className="h-96 p-0">
             {chartLoading ? (
-              <ChartSkeleton type="curve" isRTL={isRTL} />
+              <div className="flex h-full w-full flex-col justify-between p-6 animate-pulse">
+                <div className="h-6 bg-muted rounded w-1/4 mb-4"></div>
+                <div className="flex items-end justify-between gap-2 h-64">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div key={i} className="bg-muted rounded w-full" style={{ height: `${Math.random() * 60 + 40}%` }}></div>
+                  ))}
+                </div>
+              </div>
             ) : (
-              // --- FIX: Wrap the chart in ChartContainer ---
               <ChartContainer config={{}} className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={memberChartData} margin={{ top: 10, right: 30, left: 0, bottom: 20 }}>
