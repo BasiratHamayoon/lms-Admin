@@ -9,7 +9,7 @@ import { ArrowRight } from 'lucide-react';
 import TablePagination from '../Pagination';
 import { TABLE_STYLES } from '@data/Constants';
 import BaseFilter from '../filters/BaseFilter';
-import TableSkeleton from '../skeletons/TableSkeleton';
+import TableSkeleton from '../Skeletons/TableSkeleton';
 import {
   Table,
   TableBody,

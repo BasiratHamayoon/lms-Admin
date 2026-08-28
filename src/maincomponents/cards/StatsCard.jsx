@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import StatsCardSkeleton from '@maincomponents/Skeletons/StatsCardSkeleton';
+import StatsCardSkeleton from '../Skeletons/StatsCardSkeleton';
 
 const StatsCard = ({ title, value, change, icon: Icon, color, delay = 0, route, loading = false }) => {
   const { t, i18n } = useTranslation();
