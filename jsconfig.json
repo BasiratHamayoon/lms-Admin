@@ -12,6 +12,10 @@
       "@layouts/*": ["src/layouts/*"],
       "@hooks/*": ["src/hooks/*"],
       "@validations/*": ["src/validations/*"]
-    }
-  }
+    },
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*"]
 }
